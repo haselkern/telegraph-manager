@@ -34,13 +34,26 @@ p{
 a.card{
     cursor: pointer;
 }
-.screen{
+#wrapper{
     max-width: 600px;
     margin: 1em auto;
 }
 .card.blank{
     background: none;
     box-shadow: none;
+}
+
+/* error popup */
+.error{
+    z-index: 2;
+    position: fixed;
+    top: -100px;
+    transition: 200ms;
+    color: #B71C1C;
+    font-weight: bold;
+}
+.error.active{
+    top: 0;
 }
 
 /* Main Screen */

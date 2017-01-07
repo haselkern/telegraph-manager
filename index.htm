@@ -16,93 +16,103 @@
 </head>
 <body>
 
-    <div id="hero" class="screen">
-        <div class="card blank">
-            <h1>Telegraph Manager</h1>
-            <p>
-                An easy way to manage your articles, profile and views for <a href="http://telegra.ph/">telegra.ph</a>.
-            </p>
+    <div id="error" class="error">
+        <div class="card">
+            <span></span>
         </div>
     </div>
 
-    <div id="screen-nosupport" class="screen">
-        <div class="card">
-            Your browser doesn't support JavaScript and/or HTML5 LocalStorage. Please update your browser and enable JavaScript.
+    <div id="wrapper">
+
+        <div id="hero">
+            <div class="card blank">
+                <h1>Telegraph Manager</h1>
+                <p>
+                    An easy way to manage your articles, profile and views for <a href="http://telegra.ph/">telegra.ph</a>.
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div id="screen-login" class="screen">
-        <div class="card">
-            <h1>create an account</h1>
-            <input type="text" name="author_name" placeholder="your name" required />
-            <input type="text" name="short_name" placeholder="short name (not published)" required />
-            <input type="url" name="author_url" placeholder="your website (optional)" />            
-            <button onclick="createAccount()">create account</button>
+        <div id="screen-nosupport">
+            <div class="card">
+                Your browser doesn't support JavaScript and/or HTML5 LocalStorage. Please update your browser and enable JavaScript.
+            </div>
         </div>
-        <div class="card">
-            <h1>login with token</h1>
-            <input type="text" name="token" placeholder="your token (like this: b968da509bb768...)" required />            
-            <button onclick="tokenLogin()">login</button>
+
+        <div id="screen-login">
+            <div class="card">
+                <h1>create an account</h1>
+                <input type="text" name="author_name" placeholder="your name" required />
+                <input type="text" name="short_name" placeholder="short name (not published)" required />
+                <input type="url" name="author_url" placeholder="your website (optional)" />            
+                <button onclick="createAccount()">create account</button>
+            </div>
+            <div class="card">
+                <h1>login with token</h1>
+                <input type="text" name="token" placeholder="your token (like this: b968da509bb768...)" required />            
+                <button onclick="tokenLogin()">login</button>
+            </div>
         </div>
-    </div>
 
-    <div id="screen-login-telegraph" class="screen">
-        <div class="card">
-            <p>
-                <a href="#" target="_blank" onclick="doneAuthorized()">click to login to telegra.ph</a>
-            </p>
-            <p>
-                You have to do this in order to publish articles. After you've clicked the link, come back to this website.
-            </p>
+        <div id="screen-login-telegraph">
+            <div class="card">
+                <p>
+                    <a href="#" target="_blank" onclick="doneAuthorized()">click to login to telegra.ph</a>
+                </p>
+                <p>
+                    You have to do this in order to publish articles. After you've clicked the link, come back to this website.
+                </p>
+            </div>
         </div>
-    </div>
 
-    <div id="screen-main" class="screen">
-        <a id="fab" href="http://telegra.ph/" target="_blank" title="new page"><img src="g/ic_add.png" /></a>
+        <div id="screen-main">
+            <a id="fab" href="http://telegra.ph/" target="_blank" title="new page"><img src="g/ic_add.png" /></a>
 
-        <div id="user-info">
+            <div id="user-info">
 
-            <div id="user-image-animator" title="edit profile" onclick="edit()">
-                <div id="user-image">
-                    <img src="g/ic_account.png" />
+                <div id="user-image-animator" title="edit profile" onclick="edit()">
+                    <div id="user-image">
+                        <img src="g/ic_account.png" />
+                    </div>
+                    <div id="user-edit">
+                        <img src="g/ic_edit_white.png" />
+                    </div>
                 </div>
-                <div id="user-edit">
-                    <img src="g/ic_edit_white.png" />
-                </div>
+
+                <span id="user-name"></span>
+                <span id="user-short"></span>
+                <a id="user-url" href="#" target="_blank"></a>
+                <br>
+                <span>&mdash; <span id="user-page-count"></span> &mdash;</span>
             </div>
 
-            <span id="user-name"></span>
-            <span id="user-short"></span>
-            <a id="user-url" href="#" target="_blank"></a>
-            <br>
-            <span>&mdash; <span id="user-page-count"></span> &mdash;</span>
-        </div>
+            <div id="page-list">
 
-        <div id="page-list">
+            </div>
 
         </div>
 
-    </div>
+        <div id="screen-edit">
+            <div class="card blank">
+                <a onclick="main()" href="#">back</a>
+            </div>
+            <div class="card">
+                <h1>change account information</h1>
+                <input type="text" name="author_name_edit" placeholder="your name" required />
+                <input type="text" name="short_name_edit" placeholder="short name (not published)" required />
+                <input type="url" name="author_url_edit" placeholder="your website (optional)" />            
+                <button onclick="saveEdit()">save</button>
+            </div>
+            <div class="card">
+                <h1>logout</h1>
+                <p>
+                    <strong>Warning!</strong> To be able log into this account again you <strong> will need</strong> this token:
+                </p>
+                <p id="logout-token"></p>
+                <button onclick="logout()">logout</button>
+            </div>
+        </div>
 
-    <div id="screen-edit" class="screen">
-        <div class="card blank">
-            <a onclick="main()" href="#">back</a>
-        </div>
-        <div class="card">
-            <h1>change account information</h1>
-            <input type="text" name="author_name_edit" placeholder="your name" required />
-            <input type="text" name="short_name_edit" placeholder="short name (not published)" required />
-            <input type="url" name="author_url_edit" placeholder="your website (optional)" />            
-            <button onclick="saveEdit()">save</button>
-        </div>
-        <div class="card">
-            <h1>logout</h1>
-            <p>
-                <strong>Warning!</strong> To be able log into this account again you <strong> will need</strong> this token:
-            </p>
-            <p id="logout-token"></p>
-            <button onclick="logout()">logout</button>
-        </div>
     </div>
 
 </body>

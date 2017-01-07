@@ -7,6 +7,9 @@ var numberOfPagesToLoad = 10;
 // How many pixels should there be space around the FAB
 var fabSpace = 30;
 
+// How many milliseconds should an error message be visible
+var errorTime = 2000;
+
 $(document).ready(function(){
 
     // Check for localStorage
@@ -28,20 +31,23 @@ $(document).ready(function(){
         }
     }
 
-    // Window resize for positioning FAB
+    // Window resize for positioning elements
     window.onresize = resize;
     resize();
 
 });
 
+// Position FAB and error popups when resizing
 function resize(){
     var fab = $("#fab");
-    var screenWidth = $(".screen:visible").width();
+    var screenWidth = $("#wrapper").width();
 
-    var left = ($(window).width() - screenWidth)/2 + screenWidth - fab.width() - fabSpace;
+    var fabLeft = ($(window).width() - screenWidth)/2 + screenWidth - fab.width() - fabSpace;
 
     fab.css("bottom", fabSpace);
-    fab.css("left", left);
+    fab.css("left", fabLeft);
+
+    $(".error").css("right", $("#wrapper").offset().left)
 }
 
 // http://stackoverflow.com/a/488073/1456971
@@ -53,6 +59,33 @@ function isScrolledIntoView(elem) {
     var elemBottom = elemTop + $(elem).height();
 
     return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+// Shows an error message
+function error(msg){
+
+    // Prettify msg, replace all _ with blanks and set to lowercase
+    msg = msg.toLowerCase().replace(new RegExp("_", "g"), " ");
+
+    // Create popup
+    var popup = $("#error").clone();
+    popup.removeAttr("id");
+    $("body").append(popup);
+
+    // Set positions
+    resize();
+
+    // Set message and animate popup
+    popup.find("span").text(msg);
+    popup.addClass("active");
+    setTimeout(function(){
+        popup.removeClass("active");
+
+        // Destroy element
+        setTimeout(function(){
+            popup.remove();
+        }, errorTime);
+    }, errorTime);
 }
 
 function showScreen(name){
@@ -97,7 +130,7 @@ function createAccount(){
 
         // Check for valid data
         if(!data.ok){
-            alert(data.error);
+            error(data.error);
             return;
         }
         
@@ -121,7 +154,7 @@ function tokenLogin(){
 
         // Check for valid data
         if(!data.ok){
-            alert(data.error);
+            error(data.error);
             return;
         }
         
@@ -194,7 +227,7 @@ function loadPages(){
 
         // Check for valid data
         if(!data.ok){
-            alert(data.error);
+            error(data.error);
             return;
         }
 
@@ -229,7 +262,7 @@ function edit(){
         
         // Check for valid data
         if(!data.ok){
-            alert(data.error);
+            error(data.error);
             return;
         }
         
@@ -255,7 +288,7 @@ function saveEdit(){
         
         // Check for valid data
         if(!data.ok){
-            alert(data.error);
+            error(data.error);
             return;
         }
         
