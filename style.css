@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+a, a:visited{
+    color: #000;
+}
+
+body{
+    background-color: #eee;
+}
+
+p{
+    margin: 1em;
+}
+
+/* Initially hide all screens, except for screen-nosupport */
+#screen-login, #screen-login-telegraph, #screen-main, #screen-edit {
+    display: none;
+}
+
+.card{
+    display: block;
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 2px 4px #777;
+    padding: 1em;
+    margin-top: 1em;
+    margin-left: 1em;
+    margin-right: 1em;
+}
+a.card{
+    cursor: pointer;
+}
+.screen{
+    max-width: 600px;
+    margin: 1em auto;
+}
+.card.blank{
+    background: none;
+    box-shadow: none;
+}
+
+/* Main Screen */
+
+#user-info{
+    text-align: center;
+    margin: 3em;
+}
+#user-info > *{
+    display: block;
+}
+
+#user-name{
+    font-size: 2em;
+}
+
+#user-short{
+    color: #555;
+    font-size: 0.8em;
+}
+#user-short:before{
+    content: "(";
+}
+#user-short:after{
+    content: ")";
+}
+
+#page-list a{
+    display: block;
+    text-decoration: none;
+    transition: 300ms;
+}
+#page-list a:hover{
+    box-shadow: 0px 4px 8px #777;
+    transform: translateY(-2px);
+}
+#page-list h1{
+    margin-bottom: 0.4em;
+    font-size: 1.5em;
+}
+#page-list p{
+    margin-bottom: 0.5em;
+}
+
+#fab{
+    display: block;
+    position: fixed;
+    background-color: #000;
+    border-radius: 48px;
+    width: 48px;
+    height: 48px;
+    box-shadow: 0 4px 8px #777;
+    z-index: 1;
+    cursor: pointer;
+    transition: 200ms;
+}
+#fab:hover{
+    box-shadow: 0 8px 16px #777;
+    transform: translateY(-4px);
+}
+
+/* Animating picture from silhouette to pencil */
+#user-image-animator{
+    width: 48px;
+    height: 48px;
+    display: inline-block;
+    background-color: black;
+    border-radius: 48px;
+    box-shadow: 0 2px 4px #777;
+    cursor: pointer;
+    transition: 200ms;
+    margin-bottom: 1em;
+}
+#user-edit{
+    position: absolute;
+    height: 0;
+    overflow: visible;
+    transform: translateY(-52px);
+    opacity: 0;
+    transition: 200ms;
+}
+#user-image{
+    transition: 200ms;
+}
+#user-image-animator:hover{
+    box-shadow: 0px 4px 8px #777;
+    transform: translateY(-4px);
+}
+#user-image-animator:hover #user-edit{
+    opacity: 1;
+}
+#user-image-animator:hover #user-image{
+    opacity: 0;
+}
+
+/* Login screen */
+input, button{
+    display: block;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 1em;
+    border-radius: 3px;
+    padding: 3px;
+    border: 1px solid #bbb;
+}
+button{
+    width: calc(50% + 0.6em);
+}
+
+/* Edit account screen */
+#logout-token{
+    word-wrap: break-word;
+}
