@@ -11,6 +11,8 @@
 
     <link rel="icon" type="image/png" href="g/ic_edit.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="http://haselkern.com/g/base.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -22,32 +24,30 @@
         </div>
     </div>
 
-    <div id="wrapper">
+    <div id="wrapper" class="wrap">
 
-        <div id="hero">
-            <div class="card blank">
-                <h1>Telegraph Manager</h1>
-                <p>
-                    An easy way to manage your articles, profile and views for <a href="http://telegra.ph/">telegra.ph</a>.
-                </p>
-            </div>
+        <div id="hero" class=" article">
+            <h1>Telegraph Manager</h1>
+            <p>
+                An easy way to manage your articles, profile and views for <a href="http://telegra.ph/">telegra.ph</a>.
+            </p>
         </div>
 
         <div id="screen-nosupport">
-            <div class="card">
+            <div class="article">
                 Your browser doesn't support JavaScript and/or HTML5 LocalStorage. Please update your browser and enable JavaScript.
             </div>
         </div>
 
         <div id="screen-login">
-            <div class="card">
+            <div class="article content">
                 <h1>create an account</h1>
                 <input type="text" name="author_name" placeholder="your name" required />
                 <input type="text" name="short_name" placeholder="short name (not published)" required />
                 <input type="url" name="author_url" placeholder="your website (optional)" />            
                 <button onclick="createAccount()">create account</button>
             </div>
-            <div class="card">
+            <div class="article content">
                 <h1>login with token</h1>
                 <input type="text" name="token" placeholder="your token (like this: b968da509bb768...)" required />            
                 <button onclick="tokenLogin()">login</button>
@@ -55,7 +55,7 @@
         </div>
 
         <div id="screen-login-telegraph">
-            <div class="card">
+            <div class="article content">
                 <p>
                     <a href="#" target="_blank" onclick="doneAuthorized()">click to login to telegra.ph</a>
                 </p>
@@ -68,7 +68,7 @@
         <div id="screen-main">
             <a id="fab" href="http://telegra.ph/" target="_blank" title="new page"><img src="g/ic_add.png" /></a>
 
-            <div id="user-info">
+            <div id="user-info" class="article">
 
                 <div id="user-image-animator" title="edit profile" onclick="edit()">
                     <div id="user-image">
@@ -93,17 +93,17 @@
         </div>
 
         <div id="screen-edit">
-            <div class="card blank">
+            <div class="article">
                 <a onclick="main()" href="#">back</a>
             </div>
-            <div class="card">
+            <div class="article content">
                 <h1>change account information</h1>
                 <input type="text" name="author_name_edit" placeholder="your name" required />
                 <input type="text" name="short_name_edit" placeholder="short name (not published)" required />
                 <input type="url" name="author_url_edit" placeholder="your website (optional)" />            
                 <button onclick="saveEdit()">save</button>
             </div>
-            <div class="card">
+            <div class="article content">
                 <h1>logout</h1>
                 <p>
                     <strong>Warning!</strong> To be able log into this account again you <strong> will need</strong> this token:

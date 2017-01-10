@@ -21,7 +21,7 @@ $(document).ready(function(){
     // Window scroll for loading more pages
     window.onscroll = function(){
         // Trigger loading of more pages when there are still cards to scroll
-        var triggerElement = $(".card:nth-last-child("+numberOfPagesToLoad+")");
+        var triggerElement = $(".article:nth-last-child("+numberOfPagesToLoad+")");
 
         if(isScrolledIntoView(triggerElement)){
             if(canLoadMore){
@@ -237,7 +237,7 @@ function loadPages(){
             // Should the text read 'view' or 'views'
             var s = this.views == 1 ? "" : "s";
             
-            pageList.append("<a class='card' href='"+this.url+"' target='_blank'><h1>"+this.title+"</h1><p>"+this.views+" view"+s+"</p><p>"+this.description+"</p></a>");
+            pageList.append("<a class='article content' href='"+this.url+"' target='_blank'><h1>"+this.title+"</h1><p>"+this.views+" view"+s+"</p><p>"+this.description+"</p></a>");
 
         });
 
