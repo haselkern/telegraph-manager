@@ -52,6 +52,9 @@ function resize(){
 
 // http://stackoverflow.com/a/488073/1456971
 function isScrolledIntoView(elem) {
+
+    if(!elem.is(":visible")) return false;
+
     var docViewTop = $(window).scrollTop();
     var docViewBottom = docViewTop + $(window).height();
 
