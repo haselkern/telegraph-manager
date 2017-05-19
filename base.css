@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:300|Roboto');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+    font-family: sans-serif;
+    background-image: url("bg.png");
+}
+
+a {
+    text-decoration: underline;
+    font-style: italic;
+    color: black;
+}
+
+.article{
+    display: block;
+    color: black;
+    padding: 50px;
+    border-bottom: 1px dashed #d5d5d5;
+    text-decoration: none;
+    font-style: normal;
+}
+.article:last-child{
+    border: none;
+}
+.article h1{
+    margin-bottom: 5px;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.article img{
+    max-width: 100%;
+}
+
+.content *{
+    margin-bottom: 1em;
+}
+.content *:last-child{
+    margin-bottom: 0;
+}
+
+.center{
+    text-align: center;
+}
+
+.wrap{
+    margin: 0 auto;
+}
+
+@media (min-width: 650px){
+    .wrap{
+        width: 80%;
+    }
+}
+@media (min-width: 900px){
+    .wrap{
+        width: 50%;
+    }
+}

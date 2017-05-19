@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>Telegraph Manager</title>
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta charset="utf8">
 
@@ -12,7 +12,7 @@
     <link rel="icon" type="image/png" href="g/ic_edit.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
-    <link rel="stylesheet" href="http://haselkern.com/g/base.css">
+    <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -44,12 +44,12 @@
                 <h1>create an account</h1>
                 <input type="text" name="author_name" placeholder="your name" required />
                 <input type="text" name="short_name" placeholder="short name (not published)" required />
-                <input type="url" name="author_url" placeholder="your website (optional)" />            
+                <input type="url" name="author_url" placeholder="your website (optional)" />
                 <button onclick="createAccount()">create account</button>
             </div>
             <div class="article content">
                 <h1>login with token</h1>
-                <input type="text" name="token" placeholder="your token (like this: b968da509bb768...)" required />            
+                <input type="text" name="token" placeholder="your token (like this: b968da509bb768...)" required />
                 <button onclick="tokenLogin()">login</button>
             </div>
         </div>
@@ -100,7 +100,7 @@
                 <h1>change account information</h1>
                 <input type="text" name="author_name_edit" placeholder="your name" required />
                 <input type="text" name="short_name_edit" placeholder="short name (not published)" required />
-                <input type="url" name="author_url_edit" placeholder="your website (optional)" />            
+                <input type="url" name="author_url_edit" placeholder="your website (optional)" />
                 <button onclick="saveEdit()">save</button>
             </div>
             <div class="article content">
